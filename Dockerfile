@@ -2,7 +2,7 @@
 FROM node:lts as builder
 
 ARG REACT_APP_SERVER
-ARG PUBLIC_URL=/
+ARG PUBLIC_URL
 
 WORKDIR /src
 

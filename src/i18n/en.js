@@ -192,6 +192,15 @@ const en = {
     },
     reports: {
       name: "Reported event |||| Reported events",
+      action: {
+        erase: {
+          title: "Delete report",
+          content:
+            "Are you sure you want to delete the report? This cannot be undone.",
+          send_success: "The report has been deleted",
+          send_failure: "The report could not be deleted",
+        },
+      },
       fields: {
         id: "ID",
         received_ts: "report time",

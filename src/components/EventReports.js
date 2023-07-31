@@ -11,9 +11,12 @@ import {
   TabbedShowLayout,
   TextField,
   useTranslate,
+  useRecordContext,
+  TopToolbar
 } from "react-admin";
 import PageviewIcon from "@mui/icons-material/Pageview";
 import ViewListIcon from "@mui/icons-material/ViewList";
+import { DeleteReportButton } from "./DeleteReport";
 
 const date_format = {
   year: "numeric",
@@ -24,14 +27,36 @@ const date_format = {
   second: "2-digit",
 };
 
+
 const ReportPagination = props => (
   <Pagination {...props} rowsPerPageOptions={[10, 25, 50, 100, 500, 1000]} />
 );
+const ReportTitle = props => {
+  const record = useRecordContext();
+  const translate = useTranslate();
+  var name = "";
+  if (record) {
+    name = record.name !== "" ? record.name : record.id;
+  }
+
+  return (
+    <span>
+      {translate("resources.reports.name", 1)} {name}
+    </span>
+  );
+};
+const ReportShowActions = ({ basePath, data, resource }) => {
+  return (
+    <TopToolbar>
+      <DeleteReportButton record={data} />
+    </TopToolbar>
+  );
+};
 
 export const ReportShow = props => {
   const translate = useTranslate();
   return (
-    <Show {...props}>
+    <Show {...props}actions={<ReportShowActions />} title={<ReportTitle />}>
       <TabbedShowLayout>
         <Tab
           label={translate("synapseadmin.reports.tabs.basic", {

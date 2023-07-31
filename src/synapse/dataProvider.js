@@ -81,6 +81,9 @@ const resourceMap = {
       ...er,
       id: er.id,
     }),
+    delete: params => ({
+      endpoint: `/_synapse/admin/v1/event_reports/${params.id}`,
+    }),
     data: "event_reports",
     total: json => json.total,
   },

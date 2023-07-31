@@ -138,9 +138,7 @@ export const RoomShow = props => {
           <TextField source="room_id" />
           <TextField source="name" />
           <TextField source="canonical_alias" />
-          <ReferenceField source="creator" reference="users">
-            <TextField source="id" />
-          </ReferenceField>
+          <TextField source="creator" />
         </Tab>
 
         <Tab

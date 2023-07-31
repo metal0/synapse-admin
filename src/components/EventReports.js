@@ -45,9 +45,7 @@ export const ReportShow = props => {
             options={date_format}
             sortable={true}
           />
-          <ReferenceField source="user_id" reference="users">
-            <TextField source="id" />
-          </ReferenceField>
+          <TextField source="user_id" />
           <NumberField source="score" />
           <TextField source="reason" />
           <TextField source="name" />
@@ -76,9 +74,7 @@ export const ReportShow = props => {
             options={date_format}
             sortable={true}
           />
-          <ReferenceField source="sender" reference="users">
-            <TextField source="id" />
-          </ReferenceField>
+          <TextField source="sender" />
           <TextField source="event_id" />
           <TextField source="event_json.origin" />
           <TextField source="event_json.type" />
